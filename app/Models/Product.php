@@ -26,6 +26,11 @@ class Product extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function productInventory()
+    {
+        return $this->hasOne('App\Models\ProductInventory');
+    }
+
     public function categories()
     {
         return $this->belongsToMany('App\Models\Category', 'product_categories');

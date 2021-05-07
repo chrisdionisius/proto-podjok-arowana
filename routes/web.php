@@ -25,6 +25,7 @@ Route::group(
         Route::get('dashboard', 'DashboardController@index');
         Route::resource('categories', 'CategoryController');
         Route::resource('products', 'ProductController');
+        Route::resource('transactions', 'TransactionController');
         Route::get('products/{productID}/images', 'ProductController@images');
         Route::get('products/{productID}/add-image', 'ProductController@add_image');
         Route::post('products/images/{productID}', 'ProductController@upload_image');
