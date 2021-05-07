@@ -5,7 +5,7 @@
     <div id="sidebar" class="sidebar sidebar-with-footer">
         <!-- Aplication Brand -->
         <div class="app-brand">
-            <a href="/index.html" title="Sleek Dashboard">
+            <a href="/index.html" title="Podjok Arowana">
                 <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30"
                     height="33" viewBox="0 0 30 33">
                     <g fill="none" fill-rule="evenodd">
@@ -13,7 +13,7 @@
                         <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                     </g>
                 </svg>
-                <span class="brand-name text-truncate">Sleek Dashboard</span>
+                <span class="brand-name text-truncate">Podjok Arowana</span>
             </a>
         </div>
         <!-- begin sidebar scrollbar -->
@@ -83,20 +83,14 @@
                     <ul class="collapse" id="icons" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('admin/transactions') }}">
-                                    <span class="nav-text">Manage Transaksi</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="sidenav-item-link" href="flag-icon.html">
+                                <a class="sidenav-item-link" href="{{ url('admin/transactions/create') }}">
                                     <span class="nav-text">Barang Masuk</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a class="sidenav-item-link" href="flag-icon.html">
-                                    <span class="nav-text">Barang Keluar</span>
+                                    <span class="nav-text">Penjualan</span>
                                 </a>
                             </li>
                         </div>
@@ -113,32 +107,32 @@
                     <ul class="collapse" id="forms" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="basic-input.html">
-                                    <span class="nav-text">Basic Input</span>
+                                <a class="sidenav-item-link" href="{{ url('admin/transactions/') }}">
+                                    <span class="nav-text">Riwayat Transaksi</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a class="sidenav-item-link" href="input-group.html">
-                                    <span class="nav-text">Input Group</span>
+                                    <span class="nav-text">Riwayat Input Barang</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a class="sidenav-item-link" href="checkbox-radio.html">
-                                    <span class="nav-text">Checkbox & Radio</span>
+                                    <span class="nav-text">Riwayat Penjualan</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a class="sidenav-item-link" href="form-validation.html">
-                                    <span class="nav-text">Form Validation</span>
+                                    <span class="nav-text">Laporan Penjualan</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a class="sidenav-item-link" href="form-advance.html">
-                                    <span class="nav-text">Form Advance</span>
+                                    <span class="nav-text">Laporan Stock</span>
                                 </a>
                             </li>
                         </div>

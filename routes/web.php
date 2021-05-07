@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.dashboard.index');
 });
 
 Auth::routes();
@@ -26,9 +26,12 @@ Route::group(
         Route::resource('categories', 'CategoryController');
         Route::resource('products', 'ProductController');
         Route::resource('transactions', 'TransactionController');
+        Route::resource('inventories', 'InventoryController');
+        Route::get('transactions/masuk/{product_id}', 'TransactionController@masuk');
         Route::get('products/{productID}/images', 'ProductController@images');
         Route::get('products/{productID}/add-image', 'ProductController@add_image');
         Route::post('products/images/{productID}', 'ProductController@upload_image');
         Route::delete('products/images/{imageID}', 'ProductController@remove_image');
+        
     }
 );

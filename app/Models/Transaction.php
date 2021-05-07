@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductInventory extends Model
+class Transaction extends Model
 {
-    protected $attributes = [
-        'qty' => 0,
-     ];
+    //
     protected $fillable = [
         'product_id',
-        'qty',
+        'jenis_transaksi',
+        'jumlah',
+        'jumlah_awal',
     ];
 
     public function product()

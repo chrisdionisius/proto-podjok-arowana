@@ -88,7 +88,7 @@
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <img src="{{ URL::asset('admin/assets/img/user/user.png') }}" class="user-image"
                             alt="User Image" />
-                        <span class="d-none d-lg-inline-block">Abdus Salam</span>
+                        <span class="d-none d-lg-inline-block">Admin Podjok Arowana</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <!-- User image -->
@@ -96,8 +96,8 @@
                             <img src="{{ URL::asset('admin/assets/img/user/user.png') }}" class="img-circle"
                                 alt="User Image" />
                             <div class="d-inline-block">
-                                Abdus Salam
-                                <small class="pt-1">iamabdus@gmail.com</small>
+                                Admin
+                                <small class="pt-1">admin@podjokarowana.com</small>
                             </div>
                         </li>
 

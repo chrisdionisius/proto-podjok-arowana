@@ -68,7 +68,7 @@ class ProductController extends Controller
         $saved = DB::transaction(function() use ($params) {
             $product = Product::create($params);
             $product->categories()->sync($params['category_ids']);
-
+            app('App\Http\Controllers\Admin\InventoryController')->store(Product::latest('created_at')->first()->id);
             return true;
         });
 

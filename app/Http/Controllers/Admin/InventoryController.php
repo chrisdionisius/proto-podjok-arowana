@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\ProductInventory;
+use App\Models\Product;
 use App\Models\Transaction;
 
-class TransactionController extends Controller
+class InventoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::orderBy('created_at','desc')->paginate(10);
-        return view('admin.transactions.index',['transactions' => $transactions]);
-        
+        $products = Product::orderBy('name', 'asc')->paginate(10);
+        return view('admin.inventories.index', ['products'=>$products]);
     }
 
     /**
@@ -27,17 +26,9 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
-        $products = Product::orderBy('name', 'asc')->paginate(10);
-        return view('admin.inventories.index', ['products'=>$products]);
-    }
-
-    public function masuk($product_id)
-    {
-        $product = Product::find($product_id);
-        return view('admin.transactions.form', ['product' => $product]);
+        //
     }
 
     /**
@@ -46,17 +37,11 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        $product_id = $request->product_id;
-        $this->data['product_id'] = $product_id;
-        $this->data['jenis_transaksi'] = $request->jenis_transaksi;
-        $this->data['jumlah'] = $request->jumlah;
-        $this->data['jumlah_awal'] = ProductInventory::where('product_id', '=', $product_id)->firstOrFail()->qty;
-        Transaction::create($this->data);
-        app('App\Http\Controllers\Admin\InventoryController')->update($this->data);
-        return redirect('/admin/transactions');
-
+        $productInventory = new ProductInventory;
+        $productInventory->product_id = $id;
+        $productInventory->save();
     }
 
     /**
@@ -88,9 +73,15 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($inventory)
     {
-        //
+        $productInventory = ProductInventory::where('product_id', '=', $inventory['product_id'])->firstOrFail();
+        if ($inventory['jenis_transaksi'] == 1) {
+            $productInventory->qty += $inventory['jumlah'];
+        }else{
+            $productInventory->qty -= $inventory['jumlah'];
+        }
+        $productInventory->save();
     }
 
     /**

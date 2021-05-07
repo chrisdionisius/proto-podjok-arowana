@@ -6,29 +6,32 @@
             <div class="col-lg-12">
                 <div class="card card-default">
                     <div class="card-header card-header-border-bottom">
-                        <h2>Products</h2>
+                        <h2>transactions</h2>
                     </div>
                     <div class="card-body">
                         @include('admin.partials.flash')
                         <table class="table table-bordered table-stripped">
                             <thead>
-                                <th>#</th>
-                                <th>SKU</th>
-                                <th>Name</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>ID</th>
+                                <th>Kode Produk</th>
+                                <th>Nama Produk</th>
+                                <th>Jenis Transaksi</th>
+                                <th>Jumlah</th>
+                                <th>Tanggal/waktu</th>
                             </thead>
                             <tbody>
-                                @forelse ($products as $product)
-                                    <tr>    
-                                        <td>{{ $product->id }}</td>
-                                        <td>{{ $product->sku }}</td>
-                                        <td>{{ $product->name }}</td>
-                                        <td>{{ $product->status }}</td>
-                                        <td>
-                                            <a href="{{ url('admin/products/'. $product->id .'/edit') }}" class="btn btn-warning btn-sm">Barang Masuk</a>
-                                            <a href="{{ url('admin/products/'. $product->id .'/edit') }}" class="btn btn-warning btn-sm">Barang Keluar</a>
-                                        </td>
+                                @forelse ($transactions as $transaction)
+                                    <tr>
+                                        <td>{{ $transaction->id}}</td>    
+                                        <td>{{ $transaction->Product->sku}}</td>
+                                        <td>{{ $transaction->Product->name }}</td>
+                                        @if($transaction->jenis_transaksi==1)
+                                        <td>Barang Masuk</td>
+                                        @else
+                                        <td>Barang Keluar</td>
+                                        @endif
+                                        <td>{{ $transaction->jumlah }}</td>
+                                        <td>{{ $transaction->created_at }}</td>
                                     </tr>
                                 @empty
                                     <tr>
@@ -37,7 +40,7 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        {{ $products->links() }}
+                        {{ $transactions->links() }}
                     </div>
                 </div>
             </div>
