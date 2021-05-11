@@ -10,7 +10,7 @@
         <div class="col-lg-8">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom">
-                        <h2>Upload Images</h2>
+                        <h2>Unggah gambar produk</h2>
                 </div>
                 <div class="card-body">
                     @include('admin.partials.flash', ['$errors' => $errors])

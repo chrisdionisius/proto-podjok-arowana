@@ -55,7 +55,7 @@ class TransactionController extends Controller
         $this->data['jumlah_awal'] = ProductInventory::where('product_id', '=', $product_id)->firstOrFail()->qty;
         Transaction::create($this->data);
         app('App\Http\Controllers\Admin\InventoryController')->update($this->data);
-        return redirect('/admin/transactions');
+        return redirect('/admin/inventories');
 
     }
 

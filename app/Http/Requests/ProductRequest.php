@@ -34,7 +34,6 @@ class ProductRequest extends FormRequest
             $sku = 'required|unique:products,sku,'. $this->get('id');
             $name = 'required|unique:products,name,'. $this->get('id');
             $status = 'required';
-            $qty .= '|required';
             $price .= '|required';
         } else {
             $sku = 'required|unique:products,sku';
