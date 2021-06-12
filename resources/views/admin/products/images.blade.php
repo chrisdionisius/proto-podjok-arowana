@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="content">
+<div class="content"> 
     <div class="row">
         <div class="col-lg-4">
             @include('admin.products.product_menus')
